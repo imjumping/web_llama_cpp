@@ -3,6 +3,8 @@
 
 然后改config.js
 
+**建议使用linux/termux做服务端，必须编译服务端并运行,AI的路径必须是服务端（比如树莓派）的~/model/model.gguf**
+
 完成后打开服务端，在打开一个终端，运行
 ```sh
 python -m http.server 8000
