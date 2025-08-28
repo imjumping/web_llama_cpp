@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>树莓派 AI 聊天系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 树莓派 AI 聊天</h1>
+            <div class="status" id="status">状态: 检查连接...</div>
+        </header>
+
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message system">
+                    系统已启动。连接到树莓派AI服务器...
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="controls">
+    <!-- 现有的控制项 -->
+    <label>
+        <input type="number" id="maxTokens" value="150" min="1" max="1000">
+        最大生成长度
+    </label>
+    <label>
+        <input type="number" id="temperature" value="0.7" min="0.1" max="1.0" step="0.1">
+        温度
+    </label>
+
+    <!-- 新增模式切换 -->
+    <label class="mode-switch">
+        <input type="checkbox" id="modeToggle" onchange="toggleMode()">
+        <span class="slider"></span>
+        <span id="modeLabel">续写模式</span>
+    </label>
+</div>
+
+                <div class="input-group">
+                    <textarea
+                        id="messageInput"
+                        placeholder="输入你的消息..."
+                        rows="3"
+                        onkeydown="if(event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); sendMessage(); }"
+                    ></textarea>
+                    <button onclick="sendMessage()" id="sendBtn">发送</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3>系统信息</h3>
+            <p>📱 前端: 电脑网页服务器</p>
+            <p>🧠 AI后端: 树莓派 (rpi5.local:1145)</p>
+            <p>⚡ 分布式架构运行中</p>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
